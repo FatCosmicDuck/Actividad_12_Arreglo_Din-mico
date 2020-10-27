@@ -1,34 +1,57 @@
 #include <iostream>
-#include "arreglodinamico.h"
+#include "arreglo.h"
 
 using namespace std;
 
 int main()
 {
-    ArregloDinamico arreglo;
-    arreglo.insertar_final("Ludnes - BMTH");
-    arreglo.insertar_final("Lonely - Brad Sucks");
-    arreglo.insertar_final("Obey - BMTH");
-    arreglo.insertar_final("Sweater Weather - The Neighbourhood");
-    arreglo.insertar_final("Starlight Brigade - Dan Avidan");
-    arreglo.insertar_final("Magnum Bullets - Dan Avidan");
-    arreglo.insertar_final("Parasite Eve - BMTH");
-    arreglo.insertar_final("Still Fell - Half Alive");
+    Arreglo<string> arreglo;
+    // agregar 4 string's a arreglo usando insertar_final e insersar_inicio()
+    arreglo.insertar_final("Cicles");
+    arreglo.insertar_final("Sweater Weather");
+    arreglo.insertar_final("Daddy Issues");
+    arreglo.insertar_final("Afraid");
+    arreglo.insertar_inicio("Pretty Boy");
+    arreglo.insertar_inicio("Starlight Brigade");
+    arreglo.insertar_inicio("Magnum Bullets");
+    arreglo.insertar_inicio("Teardrops");
 
-    cout << "***Lista de canciones***" << endl;
-    cout << "(se agregan 8 ejemplos con el metodo insertar al final)" << endl << endl;
-    for(size_t i = 0; i < arreglo.size(); i++){
-        cout << arreglo[i] << endl;
+    // mostrar() los elementos de arreglo
+    cout << "\tLista de canciones" << endl;
+    cout << "\t______________________________" << endl;
+    for (size_t i = 0; i < arreglo.size(); i++)
+    {
+        cout << "\t" << i << ".- " << arreglo[i] << endl;
     }
+    cout << endl << endl;
 
-    arreglo.insertar_inicio("Fourth of July - Sufjan Stevens");
-    arreglo.insertar_inicio("Blue Bucket of Gold - Sufjan Stevens");
+    // insertar() el elemento en la posición 2
+    arreglo.insertar("Jellyfish", 2);
 
-    cout << endl << "***Lista de canciones***" << endl;
-    cout << "(se agregan 2 ejemplos mas con el metodo insertar al principio)" << endl << endl;
-    for(size_t i = 0; i < arreglo.size(); i++){
-        cout << arreglo[i] << endl;
+    // mostrar los elementos de arreglo
+    cout << "\tLista de canciones" << endl;
+    cout << "\t______________________________" << endl;
+    for (size_t i = 0; i < arreglo.size(); i++)
+    {
+        cout << "\t" << i << ".- " << arreglo[i] << endl;
     }
+    cout << endl << endl;
 
+    // eliminar_inicio() y eliminar_final()
+    arreglo.eliminar_inicio();
+    arreglo.eliminar_final();
+
+    // eliminar() el elemento de la posición 1
+    arreglo.eliminar(1);
+
+    // mostrar() los elementos de arreglo
+    cout << "\tLista de canciones" << endl;
+    cout << "\t______________________________" << endl;
+    for (size_t i = 0; i < arreglo.size(); i++)
+    {
+        cout << "\t" << i << ".- " << arreglo[i] << endl;
+    }
+    cout << endl << endl;
+    
     return 0;
 }
